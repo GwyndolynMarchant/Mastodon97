@@ -232,12 +232,14 @@
         color: var(--win9x-black);
     }
 
-    div.reply-indicator {
+    div.reply-indicator,
+    .compose-form .compose-form__warning {
         background-color: var(--win9x-office-comment);
         border: 1px solid var(--win9x-black);
         box-shadow: none;
     }
 
+    .compose-form .compose-form__warning:after,
     div.reply-indicator:after {
         content: " ";
         position: absolute;
@@ -250,6 +252,10 @@
         border-right-width: 1px;
         border-bottom-width: 1px;
         background-color: var(--win9x-office-comment);
+    }
+
+    .compose-form .compose-form__warning:after {
+        margin-top: calc(2em - 4px);
     }
 
 /*┌─────────────────────────────────────────────────────┐
