@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Mastodon 97
 @namespace      shadenexus.com
-@version        1.1.0
+@version        1.1.1
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
 @homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
@@ -114,11 +114,16 @@
         background-color: var(--win9x-teal);
     }
 
+    div.columns-area__panels__pane__inner {
+        margin-right: 5px;
+    }
+    
     div.compose-panel {
         height: auto;
         box-shadow: var(--win9x-border-outset);
         background: var(--win9x-lightgray);
         padding: 2px 3px 3px 2px;
+        margin-top: calc(2em - 1px);
     }
 
     div.compose-panel .icon-button:hover {
@@ -551,6 +556,7 @@
         padding: 0px 8px;
         background: var(--win9x-lightgray);
         box-shadow: var(--win9x-border-outset);
+        margin-top: 2em;
     }
     
     div.navigation-panel {
