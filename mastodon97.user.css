@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Mastodon 97
 @namespace      shadenexus.com
-@version        1.0.1
+@version        1.1.0
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
 @homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
@@ -541,5 +541,62 @@
         left: calc(50% - 9px);
         bottom: -9px;
         z-index: 11;
+    }
+    
+    /*┌─────────────────────────────────────────────────────┐
+  │               LINK COLUMN                 │
+  └─────────────────────────────────────────────────────┘*/
+    .columns-area__panels__pane.columns-area__panels__pane--start.columns-area__panels__pane--navigational >
+    div.columns-area__panels__pane__inner {
+        padding: 0px 8px;
+        background: var(--win9x-lightgray);
+        box-shadow: var(--win9x-border-outset);
+    }
+    
+    div.navigation-panel {
+                padding: 3px 4px;
+        box-shadow: var(--win9x-shadow-inset) !important;
+        border-top: var(--win9x-border-inset-top-left) !important;
+        border-left: var(--win9x-border-inset-top-left) !important;
+        border-right: var(--win9x-border-inset-bottom-right) !important;
+        border-bottom: var(--win9x-border-inset-bottom-right) !important;
+        background-color: var(--win9x-white) !important;
+    }
+    
+    .column-link,
+    .column-link--transparent {
+        color: var(--win9x-black);
+        padding: 5px 5px 7px 5px;
+        border: 1px solid transparent;
+        margin: 2px 1px;
+    }
+    
+    .column-link:hover,
+    .column-link--transparent:hover {
+        color: var(--win9x-black);
+        background: var(--win9x-office-comment);
+        border: 1px dotted var(--win9x-gray);
+    }
+    
+    .column-link.active,
+    .column-link--transparent.active {
+        color: var(--win9x-black);
+        border: 1px solid var(--win9x-black);
+        background: var(--win9x-office-comment);
+    }
+    
+    .column-link.active:after,
+    .column-link--transparent.active:after {
+        content: " ";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        transform: rotate(135deg);
+        left: 9px;
+        margin-top: 5px;
+        border: 0px solid black;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        background-color: var(--win9x-office-comment);
     }
 }
