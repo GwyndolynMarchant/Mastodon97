@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Mastodon 97
 @namespace      shadenexus.com
-@version        1.1.1
+@version        1.1.0
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
 @homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
@@ -557,6 +557,7 @@
         background: var(--win9x-lightgray);
         box-shadow: var(--win9x-border-outset);
         margin-top: 2em;
+        height: auto;
     }
     
     div.navigation-panel {
@@ -567,6 +568,7 @@
         border-right: var(--win9x-border-inset-bottom-right) !important;
         border-bottom: var(--win9x-border-inset-bottom-right) !important;
         background-color: var(--win9x-white) !important;
+        height: auto;
     }
     
     .column-link,
@@ -604,5 +606,57 @@
         border-right-width: 1px;
         border-bottom-width: 1px;
         background-color: var(--win9x-office-comment);
+    }
+    
+    div.flex-spacer {
+        display: none;
+    }
+    
+    div.getting-started__trends {
+        position: absolute;
+        bottom: -16.5rem;
+        background: var(--win9x-lightgray);
+        box-shadow: var(--win9x-border-outset);
+        width: 100%;
+    }
+    
+    div.getting-started__trends > h4 {
+        background: linear-gradient( 90deg,
+        var(--win9x-darkgray),
+        var(--win9x-gray));
+        margin: 2px;
+        width: 92%;
+        border-bottom: none;
+        color: var(--win9x-white);
+        font-weight: bold;
+        font-size: 1.1em;
+        text-transform: capitalize;
+        height: 1.1em;
+    }
+    
+    div.getting-started__trends:hover > h4 {
+        background: linear-gradient(to left, var(--win9x-darkblue), var(--win9x-vivid-cerulean));
+        margin: 2px;
+        width: 92%;
+        border-bottom: none;
+    }
+    
+    div.getting-started__trends > div.trends__item > .trends__item__name {
+        color: var(--win9x-darkgray);
+        
+    }
+    
+    div.getting-started__trends > div.trends__item > .trends__item__name > a,
+    div.trends__item__current > span {
+        color: var(--win9x-black);
+    }
+    
+    .trends__item__sparkline path:last-child {
+        stroke: var(--win9x-vivid-cerulean) !important;
+    }
+    
+    .trends__item__sparkline path:first-child {
+        fill: var(--win9x-vivid-cerulean) !important;
+        fill-opacity: 0.2 !important;
     }
 }
