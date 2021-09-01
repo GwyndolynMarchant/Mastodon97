@@ -1,0 +1,535 @@
+/* ==UserStyle==
+@name           Mastodon 95
+@namespace      shadenexus.com
+@version        0.0.1
+@description    A userstyle that tweaks Mastodon to resemble Windows 95
+@author         Gwyndolyn Marchant
+==/UserStyle== */
+
+@-moz-document domain("mastodon.social") {
+
+/*┌─────────────────────────────────────────────────────┐
+  │                       PALETTE                       │
+  └─────────────────────────────────────────────────────┘*/
+    :root {
+        --win9x-black: #0a0a0a;
+        --win9x-darkgray: #808080;
+        --win9x-gray: #a0a0a4;
+        --win9x-lightgray: #c0c0c0;
+        --win9x-darkwhite: #dfdfdf;
+        --win9x-offwhite: #fffbf0;
+        --win9x-white: #ffffff;
+
+        --win9x-blue: #0000ff;
+        --win9x-darkblue: #000080;
+        --win9x-teal: #007b7b;
+
+        --win9x-vivid-cerulean: #02A5FF;
+        --win9x-electric-orange: #FF3300;
+        --win9x-ryb-green: #66CC33;
+        --win9x-ryb-green-alpha: #66CC3322;
+        --win9x-tangerine-yellow: #FFCC00;
+
+        --win9x-office-comment: #fdffcd;
+
+        --win9x-shadow-inset: inset -1px -1px var(--win9x-darkwhite), inset 1px 1px var(--win9x-black);
+        --win9x-border-outset: inset -1px -1px var(--win9x-black), inset 1px 1px var(--win9x-white), inset -2px -2px grey, inset 2px 2px var(--win9x-darkwhite);
+
+        --win9x-border-inset-top-left: 1px solid var(--win9x-darkgray);
+        --win9x-border-inset-bottom-right: 1px inset var(--win9x-white);
+
+        --font-primary: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-display: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-code: "Courier New", "Courier Prime", Courier, monospace;
+    }
+
+/*┌─────────────────────────────────────────────────────┐
+  │                       MASTOMODS                     │
+  └─────────────────────────────────────────────────────┘*/
+    /*
+      Use browser default font:
+      - override mastodon-font-sans-serif with sans-serif
+      - note: this is not the same as "use system default font"
+        in mastodon's preferences! that option uses a font that
+        would be *expected to load on that system*, and ignores
+        your browser's settings entirely. for example, if you
+        are running ms windows, you will see segoe ui, even if
+        your browser's default font is something else!
+      author: trwnh
+      license: Public Domain
+    */
+    body,
+    .landing-page #mastodon-timeline,
+    .landing-page li,
+    .landing-page p {
+        font-family: var(--font-display);
+    }
+
+/*
+    Emoji hover zoom:
+    - makes emoji grow in size when moused over
+
+    author: noiob
+    license: CC0 - Public Domain
+    source: https://userstyles.org/styles/150165
+*/
+    article .emojione:hover {
+        width: 50px !important;
+        /* set the width and height of the expanded emojo here */
+        height: 50px !important;
+        transition: all 0.3s ease-in-out !important;
+        /* the 0.3s is the animation time for growing the emojo, it can be set to 0 */;
+    }
+
+    article .emojione {
+        transition: all 0.2s ease-in-out;
+        /* the 0.2s is the animation time for shrinking the emojo, it can be set to 0 */;
+    }
+
+
+    /*
+      Turn stars into hearts:
+      - similar to twitter's change
+      author: numimyon
+      license: CC0 - Public Domain
+      source: https://userstyles.org/styles/151233
+    */
+    .notification__favourite-icon-wrapper .star-icon,
+    .star-icon.active,
+    .star-icon:hover,
+    .star-icon:active {
+        color: var(--win9x-electric-orange) !important;
+    }
+
+    .fa-star:before {
+        content: "";
+    }
+
+/*┌─────────────────────────────────────────────────────┐
+  │                     COMPOSE PANEL                   │
+  └─────────────────────────────────────────────────────┘*/
+    body {
+        background-color: var(--win9x-teal);
+    }
+
+    div.compose-panel {
+        height: auto;
+        box-shadow: var(--win9x-border-outset);
+        background: var(--win9x-lightgray);
+        padding: 2px 3px 3px 2px;
+    }
+
+    div.compose-panel .icon-button:hover {
+        background: var(--win9x-lightgray);
+    }
+
+    div.compose-panel > div.navigation-bar {
+        order: -1;
+        padding: 3px 4px 3px 3px;
+        background: linear-gradient( 90deg,
+        var(--win9x-darkgray),
+        var(--win9x-gray));
+        flex: 0 1 36px;
+    }
+
+    div.compose-panel > div.search {
+        margin-bottom: 0px;
+        padding: 4px;
+    }
+
+    div.compose-panel:hover > div.navigation-bar {
+        background: linear-gradient(to left, var(--win9x-darkblue), var(--win9x-vivid-cerulean));
+    }
+
+    div.navigation-bar__profile > a > strong {
+        font-weight: bold;
+        color: var(--win9x-white);
+        letter-spacing: 0;
+        margin-right: 24px;
+    }
+
+    div.navigation-bar__profile:nth-child(2) > a:nth-child(2) {
+        display: none;
+    }
+
+    div.navigation-bar div.account__avatar {
+        width: 36px !important;
+        height: 36px !important;
+        background-size: 36px !important;
+    }
+
+    .navigation-bar button,
+    .compose-form__buttons-wrapper button,
+    .compose-form__publish button {
+        box-sizing: border-box;
+        border: none;
+        background: var(--win9x-lightgray);
+        box-shadow: var(--win9x-border-outset);
+        border-radius: 0 !important;
+        min-width: 2em;
+        margin-right: 4px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select,
+    textarea {
+        padding: 3px 4px;
+        box-shadow: var(--win9x-shadow-inset) !important;
+        border-top: var(--win9x-border-inset-top-left) !important;
+        border-left: var(--win9x-border-inset-top-left) !important;
+        border-right: var(--win9x-border-inset-bottom-right) !important;
+        border-bottom: var(--win9x-border-inset-bottom-right) !important;
+        background-color: var(--win9x-white) !important;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0 !important;
+    }
+
+    div.search > div.search__icon > i {
+        top: 8px;
+        right: 8px;
+    }
+
+    div.compose-panel > div.compose-form {
+        margin-bottom: 0;
+        padding: 0px 4px;
+    }
+
+    .compose-form div.compose-form__modifiers,
+    .compose-panel .compose-form__autosuggest-wrapper {
+        background: none;
+    }
+
+    .compose-form .compose-form__buttons-wrapper {
+        background: none;
+        padding: 2px 2px;
+    }
+
+    .compose-form .compose-form__publish .compose-form__publish-button-wrapper {
+        padding: 0;
+    }
+
+    .compose-form button {
+        background-color: transparent;
+        color: var(--win9x-black);
+    }
+
+    div.getting-started__footer {
+        padding: 0 10px;
+    }
+
+    div.getting-started__footer > p {
+        margin-bottom: 10px;
+    }
+
+    div.getting-started__footer > ul > li > a {
+        color: var(--win9x-black);
+    }
+
+    div.reply-indicator {
+        background-color: var(--win9x-office-comment);
+        border: 1px solid var(--win9x-black);
+        box-shadow: none;
+    }
+
+    div.reply-indicator:after {
+        content: " ";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 50%;
+        transform: rotate(45deg);
+        margin-top: 6px;
+        border: 0px solid black;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        background-color: var(--win9x-office-comment);
+    }
+
+/*┌─────────────────────────────────────────────────────┐
+  │                    DROPDOWN MENU                    │
+  └─────────────────────────────────────────────────────┘*/
+    div.dropdown-menu {
+        background-color: var(--win9x-office-comment);
+        border: 1px solid var(--win9x-black);
+        box-shadow: none;
+    }
+
+    div.dropdown-menu > ul > li > a {
+        background-color: transparent;
+    }
+
+    div.dropdown-menu__arrow.bottom {
+        border-bottom-color: var(--win9x-office-comment) !important;
+    }
+
+    div.dropdown-menu__arrow.bottom:after {
+        content: " ";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: -5px;
+        transform: rotate(225deg);
+        border: 0px solid black;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+    }
+
+/*┌─────────────────────────────────────────────────────┐
+  │                MAIN COLUMN - HEADER                 │
+  └─────────────────────────────────────────────────────┘*/
+    .tabs-bar__wrapper {
+        background: var(--win9x-teal);
+        box-shadow: var(--win9x-border-outset);
+        padding-top: 2px;
+        margin-top: 0.5em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tabs-bar__wrapper > nav.tabs-bar {
+        margin-bottom: 0;
+    }
+
+    #tabs-bar__portal,
+    .column-back-button {
+        order: -1;
+        margin: 0px 2px;
+        width: calc(100% - 4px);
+        background: linear-gradient( 90deg,
+        var(--win9x-darkgray),
+        var(--win9x-gray));
+        height: 32px;
+    }
+
+    .column-header__buttons {
+        height: 32px;
+    }
+
+    .columns-area__panels__main:hover #tabs-bar__portal,
+    .columns-area__panels__main:hover .column-back-button {
+        background: linear-gradient(to left, var(--win9x-darkblue), var(--win9x-vivid-cerulean));
+    }
+
+    #tabs-bar__portal > div > h1 > button,
+    .column-back-button {
+        font-weight: bold;
+        color: var(--win9x-white);
+        letter-spacing: 0;
+        padding: 0 4px;
+    }
+
+    #tabs-bar__portal > div > h1 {
+        background: transparent;
+    }
+
+    #tabs-bar__portal > div > h1 > div > button {
+        background: var(--win9x-lightgray);
+        width: 2em;
+        height: 1.5em;
+        padding: 0px 4px;
+        margin: 4px 4px 0px 0px;
+        box-shadow: var(--win9x-border-outset);
+    }
+
+    #tabs-bar__portal > div > h1 > div > button i {
+        width: 1em;
+        height: 1em;
+    }
+
+    .tabs-bar__wrapper > nav.tabs-bar {
+        background-color: var(--win9x-gray);
+        margin: 0px 2px;
+        width: calc(100% - 4px);
+    }
+
+    div.announcements,
+    div.column-header__collapsible:not(.collapsed):not(.animating) {
+        display: flex;
+        margin-top: 4px;
+        background-color: var(--win9x-office-comment);
+        border: 1px solid var(--win9x-black);
+        color: var(--win9x-black);
+        overflow: visible;
+    }
+
+    .column-header__collapsible-inner {
+        background-color: transparent;
+    }
+
+    div.column-header__collapsible span {
+        color: var(--win9x-black);
+    }
+
+    div.announcements:after,
+    div.column-header__collapsible:after {
+        content: " ";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        right: 52px;
+        top: -5px;
+        transform: rotate(225deg);
+        border: 0px solid black;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        background-color: var(--win9x-office-comment);
+    }
+
+    div.column-header__collapsible:after {
+        right: 15px;
+    }
+
+    i.icon-with-badge__badge {
+        background-color: var(--win9x-vivid-cerulean);
+        font-weight: bold;
+        border-width: 1px;
+    }
+
+    a.tabs-bar__link.active {
+        border-bottom-color: var(--win9x-vivid-cerulean);
+        color: var(--win9x-vivid-cerulean);
+        background-color: var(--win9x-lightgray);
+    }
+
+    a.tabs-bar__link:not(.active):hover {
+        background-color: var(--win9x-darkgray);
+    }
+
+    .column-header__button,
+    .icon-button {
+        color: var(--win9x-darkgray);
+    }
+
+    .column-header__button:hover,
+    .icon-button:hover {
+        color: var(--win9x-black);
+    }
+
+/*┌─────────────────────────────────────────────────────┐
+  │               MAIN COLUMN - CONTENT                 │
+  └─────────────────────────────────────────────────────┘*/
+    div.columns-area > div.column > div.scrollable {
+        background: var(--win9x-white);
+        box-shadow: var(--win9x-border-outset);
+    }
+
+    div.detailed-status,
+    .detailed-status__action-bar {
+        background: var(--win9x-white);
+        width: calc(100% - 4px);
+        margin-left: 2px;
+    }
+
+    .focusable:focus,
+    .focusable:focus .detailed-status,
+    .focusable:focus .detailed-status__action-bar {
+        background: var(--win9x-office-comment);
+        width: calc(100% - 4px);
+    }
+
+    div.detailed-status {
+        width: calc(100% - 20px) !important;
+        padding: 8px 8px 8px 8px !important;
+    }
+
+    .status__display-name,
+    strong.display-name__html,
+    .status__content {
+        color: var(--win9x-black);
+    }
+
+    span.display-name__account,
+    .status__content a {
+        color: var(--win9x-darkgray);
+    }
+
+    strong.display-name__html {
+        font-weight: 600;
+    }
+
+    .status__content .status__content__spoiler-link {
+        background: var(--win9x-lightgray);
+    }
+
+    .status__action-bar > button:not(.active) {
+        opacity: 60%;
+    }
+/*┌─────────────────────────────────────────────────────┐
+  │            MAIN COLUMN - SPECIFIC TABS              │
+  └─────────────────────────────────────────────────────┘*/
+    .account__section-headline,
+    .notification__filter-bar,
+    .account__header__bar {
+        background: var(--win9x-white);
+    }
+
+    .account__header__fields dt {
+        color: var(--win9x-black);
+        background: var(--win9x-darkwhite);
+    }
+
+    .account__header__bar,
+    .account__header__tabs__name > h1 > span,
+    .account__header__fields dd,
+    .account__header__bio .account__header__content {
+        color: var(--win9x-black);
+    }
+
+    .account__header__bio .account__header__fields a {
+        color: var(--win9x-vivid-cerulean);
+    }
+
+    .account__header__fields .verified,
+    .account__header__fields .verified__mark,
+    .account__header__bio .account__header__fields .verified a {
+        color: var(--win9x-ryb-green);
+    }
+
+    .account__header__fields .verified {
+        background: var(--win9x-ryb-green-alpha);
+    }
+
+    .account__header__tabs__name > h1 > small,
+    .account__header__extra__links a strong {
+        color: var(--win9x-darkgray)
+    }
+
+    .account__section-headline button,
+    .notification__filter-bar button {
+        background: var(--win9x-white);
+    }
+
+    .notification__filter-bar {
+        overflow: visible;
+    }
+
+    .account__section-headline button.active,
+    .notification__filter-bar button.active,
+    .account__section-headline a.active {
+        background: var(--win9x-office-comment);
+        color: var(--win9x-darkgray);
+    }
+
+    .notification__filter-bar button.active:before,
+    .account__section-headline a.active:before {
+        border-color: transparent transparent var(--win9x-black);
+        transform: rotate(180deg);
+        left: calc(50% - 9px);
+        bottom: -10px;
+        z-index: 10;
+    }
+
+    .notification__filter-bar button.active:after,
+    .account__section-headline a.active:after {
+        border-color: transparent transparent var(--win9x-office-comment);
+        transform: rotate(180deg);
+        left: calc(50% - 9px);
+        bottom: -9px;
+        z-index: 11;
+    }
+}
