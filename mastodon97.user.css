@@ -8,7 +8,7 @@
 @author         Gwyndolyn Marchant <gwyn@shadenexus.com> (https://github.com/GwyndolynMarchant)
 ==/UserStyle== */
 
-@-moz-document domain("mastodon.social") {
+@-moz-document domain("mastodon.social"), domain("slime.global") {
 
 /*┌─────────────────────────────────────────────────────┐
   │                       PALETTE                       │
