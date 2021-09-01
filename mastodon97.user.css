@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Mastodon 97
 @namespace      shadenexus.com
-@version        1.0.0
+@version        1.0.1
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
 @homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
@@ -512,7 +512,9 @@
 
     .account__section-headline button.active,
     .notification__filter-bar button.active,
-    .account__section-headline a.active {
+    .account__section-headline a.active,
+    a.status-card.compact:hover,
+    a.status-card:hover{
         background: var(--win9x-office-comment);
         color: var(--win9x-darkgray);
     }
