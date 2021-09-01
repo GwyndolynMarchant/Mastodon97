@@ -1,9 +1,11 @@
 /* ==UserStyle==
-@name           Mastodon 95
+@name           Mastodon 97
 @namespace      shadenexus.com
-@version        0.0.1
+@version        1.0.0
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
+@homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
+@author         Gwyndolyn Marchant <gwyn@shadenexus.com> (https://github.com/GwyndolynMarchant)
 ==/UserStyle== */
 
 @-moz-document domain("mastodon.social") {
