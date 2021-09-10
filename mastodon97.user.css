@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Mastodon 97
 @namespace      shadenexus.com
-@version        1.2.1
+@version        1.2.2
 @description    A userstyle that tweaks Mastodon to resemble Windows 95
 @author         Gwyndolyn Marchant
 @homepageURL    https://github.com/GwyndolynMarchant/Mastodon97/raw/main/mastodon97.user.css
@@ -328,17 +328,40 @@
         border-bottom-width: 1px;
     }
    
-
+/* MAIN COLUMN NEW */
+    div.columns-area__panels__main {
+        box-shadow: var(--win9x-border-outset);
+        margin: 7px;
+        padding: 2px 7px 6px 6px;
+        background: var(--win9x-lightgray);
+    }
+    
+    
 /*┌─────────────────────────────────────────────────────┐
   │                MAIN COLUMN - HEADER                 │
   └─────────────────────────────────────────────────────┘*/
     .tabs-bar__wrapper {
-        background: var(--win9x-teal);
-        box-shadow: var(--win9x-border-outset);
-        padding-top: 2px;
-        margin-top: 0.5em;
+        background: none;
+        padding-top: 0px;
+        margin-right: -7px;
+        margin-left: -6px;
+        margin-bottom: 4px;
         display: flex;
         flex-direction: column;
+    }
+    
+    div.column-header__wrapper {
+        margin-left: 4px;
+        width: calc(100% - 9px);
+        box-shadow: 0px 1px 0 var(--win9x-black);
+    }
+    
+    div.column-header__wrapper:after {
+        display: block;
+        content: " ";
+        height: 4px !important;
+        background: var(--win9x-lightgray);
+        border-bottom: var(--win9x-border-inset-top-left);
     }
 
     .tabs-bar__wrapper > nav.tabs-bar {
@@ -424,7 +447,7 @@
         right: 52px;
         top: -5px;
         transform: rotate(225deg);
-        border: 0px solid black;
+        border: 0px solid var(--win9x-black);
         border-right-width: 1px;
         border-bottom-width: 1px;
         background-color: var(--win9x-office-comment);
@@ -463,11 +486,24 @@
 /*┌─────────────────────────────────────────────────────┐
   │               MAIN COLUMN - CONTENT                 │
   └─────────────────────────────────────────────────────┘*/
+    div.react-swipeable-view-container {
+        border-top: var(--win9x-border-inset-top-left);
+        border-left: var(--win9x-border-inset-top-left);
+        border-right: var(--win9x-border-inset-bottom-right);
+        border-bottom: var(--win9x-border-inset-bottom-right);
+    }
+    
     div.columns-area > div.column > div.scrollable {
         background: var(--win9x-white);
-        box-shadow: var(--win9x-border-outset);
+        box-shadow: var(--win9x-shadow-inset);
     }
 
+    div.columns-area__panels__main > div:nth-child(2) {
+        box-shadow: inset -1px -1px var(--win9x-black), inset 1px 0px var(--win9x-white), inset -2px -2px grey, inset 2px 0px var(--win9x-darkwhite);
+        overflow-y: hidden;
+
+    }
+    
     div.detailed-status,
     .detailed-status__action-bar {
         background: var(--win9x-white);
@@ -585,6 +621,17 @@
         z-index: 11;
     }
     
+    div.column.search-page {
+        background: var(--win9x-lightgray);
+        box-shadow: var(--win9x-border-outset);
+        padding: 6px;
+    }
+    
+    div.column.search-page div.drawer__inner.darker {
+        background: none;
+    }
+    
+    
     /*┌─────────────────────────────────────────────────────┐
   │               LINK COLUMN                 │
   └─────────────────────────────────────────────────────┘*/
@@ -639,7 +686,7 @@
         transform: rotate(135deg);
         left: 9px;
         margin-top: 5px;
-        border: 0px solid black;
+        border: 0px solid var(--win9x-black);
         border-right-width: 1px;
         border-bottom-width: 1px;
         background-color: var(--win9x-office-comment);
